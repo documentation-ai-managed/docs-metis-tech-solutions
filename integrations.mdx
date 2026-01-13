@@ -1,0 +1,156 @@
+---
+title: Integrations and Partnerships
+description: Understand how Metis Tech Solutions integrates with your existing business systems and forms strategic partnerships for seamless tech adoption.
+---
+
+## Overview
+
+Metis Tech Solutions seamlessly integrates with your enterprise ecosystem, enabling smooth digital transformations. You connect MTS to tools like CRM systems, collaboration platforms, and operational software through APIs, webhooks, and custom strategies. Strategic partnerships with leading vendors ensure compatibility and support for your IT operations.
+
+<Callout kind="info">
+  MTS supports over 50 enterprise tools out-of-the-box. Review compatibility before setup to ensure optimal performance.
+</Callout>
+
+## Compatible Enterprise Tools
+
+MTS works with popular enterprise platforms. Use the grid below to explore key integrations.
+
+<Columns cols={3}>
+  <Card title="CRM Systems" icon="database" href="#crm-integrations">
+    Integrate with Salesforce, HubSpot, and Microsoft Dynamics for customer data sync.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Connect Slack, Microsoft Teams, and Zoom for real-time notifications and meetings.
+  </Card>
+  <Card title="Operations" icon="settings" href="#operations">
+    Link with ServiceNow, Jira, and PagerDuty for IT operations and incident management.
+  </Card>
+</Columns>
+
+## Third-Party Vendor Collaborations
+
+MTS forms partnerships with trusted vendors. Switch between tabs to see collaboration details.
+
+<Tabs>
+  <Tab title="Salesforce" icon="cloud">
+    Sync leads and opportunities bidirectionally. Use OAuth for secure access.
+
+    <CodeGroup tabs="JavaScript,Python">
+      ```javascript
+      const response = await fetch('https://api.example.com/integrations/salesforce/sync', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${YOUR_TOKEN}` },
+        body: JSON.stringify({ leads: [] })
+      });
+      ```
+      ```python
+      import requests
+      response = requests.post(
+        'https://api.example.com/integrations/salesforce/sync',
+        headers={'Authorization': f'Bearer {YOUR_TOKEN}'},
+        json={'leads': []}
+      )
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Slack" icon="message-circle">
+    Send automated alerts for IT events. Configure webhooks for instant notifications.
+  </Tab>
+  <Tab title="ServiceNow" icon="shield">
+    Automate ticket creation and resolution workflows.
+  </Tab>
+</Tabs>
+
+## Custom Integration Strategies
+
+Build tailored integrations using MTS APIs. Follow these steps to connect your systems.
+
+<Steps>
+  <Step title="Generate API Key" icon="key">
+    Access your MTS dashboard at `https://dashboard.example.com` and create an API key.
+  </Step>
+  <Step title="Configure Endpoints" icon="settings">
+    Set base URL to `https://api.example.com/v1` and test connectivity.
+  </Step>
+  <Step title="Implement Webhook" icon="zap">
+    Register your webhook URL for real-time events.
+  </Step>
+  <Step title="Test and Deploy" icon="check-circle">
+    Run tests and monitor via dashboard.
+  </Step>
+</Steps>
+
+## Webhooks and API Connections
+
+Use webhooks for event-driven operations and REST APIs for polling data.
+
+### Webhook Setup
+
+<ParamField path="webhook_url" param-type="string" required="true">
+  Your secure endpoint to receive MTS events, e.g., `https://your-webhook-url.com/mts-events`.
+</ParamField>
+
+<ParamField header="X-MTS-Signature" param-type="string" required="true">
+  HMAC signature for payload verification using your secret.
+</ParamField>
+
+Example webhook payload:
+
+```json
+{
+  "event": "incident.created",
+  "data": {
+    "id": "inc_123",
+    "severity": "high",
+    "timestamp": "2024-01-15T10:30:00Z"
+  }
+}
+```
+
+### API Polling Example
+
+<Request tabs="JavaScript,cURL" show-lines="true">
+  ```javascript
+  const events = await fetch('https://api.example.com/v1/events?limit=10', {
+    headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` }
+  }).then(res => res.json());
+  ```
+  ```bash
+  curl -H "Authorization: Bearer YOUR_API_KEY" \
+       "https://api.example.com/v1/events?limit=10"
+  ```
+</Request>
+
+<Response tabs="200">
+  ```json
+  {
+    "events": [
+      {
+        "id": "evt_456",
+        "type": "incident.resolved",
+        "data": { "details": "Issue fixed" }
+      }
+    ],
+    "next_cursor": "cur_next_page"
+  }
+  ```
+</Response>
+
+<Expandable title="Advanced Custom Strategies" default-open="false">
+  For complex scenarios, combine webhooks with MTS SDKs. Install via npm:
+
+  ````bash
+  npm install @metis-tech/sdk
+  ````
+
+  Initialize with your key:
+
+  ````javascript
+  import { MTSClient } from '@metis-tech/sdk';
+  const client = new MTSClient({ apiKey: 'YOUR_API_KEY' });
+  ````
+</Expandable>
+
+<Callout kind="tip">
+  Monitor integration health in the MTS dashboard. Set up alerts for failures to maintain efficiency.
+</Callout>

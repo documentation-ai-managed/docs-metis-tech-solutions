@@ -1,0 +1,110 @@
+---
+title: Changelog
+description: Track the latest updates, service enhancements, and key milestones in Metis Tech Solutions' offerings.
+---
+
+## Recent Updates
+
+<Callout kind="info">
+You receive automatic notifications for major releases via your Metis Tech Solutions dashboard at `https://dashboard.example.com`. Subscribe to our RSS feed or email updates to stay ahead.
+</Callout>
+
+Metis Tech Solutions continuously evolves to support your digital transformation. Review the latest versions below, highlighting service expansions, framework updates, partnerships, and IT operations tools.
+
+## Release History
+
+<Update label="2024-10-15" description="v2.1.0" tags={["feature", "partnership"]}>
+## New Features
+
+- Expanded cloud migration services with AWS and Azure native integrations for seamless scaling.
+- Announced partnership with leading cybersecurity firm to bundle threat detection in all IT operations packages.
+
+## Improvements
+
+- Enhanced digital transformation frameworks with AI-driven assessment tools, reducing deployment time by `30%`.
+
+</Update>
+
+<Update label="2024-09-20" description="v2.0.0" tags={["feature", "improvement", "breaking"]}>
+## New Features
+
+- Introduced IT operations dashboard v2 with real-time monitoring and automated alerting.
+- Added serverless deployment templates for Node.js and Python applications.
+
+## Improvements
+
+- Updated monitoring agent to support containerized environments like Kubernetes.
+
+## Breaking Changes
+
+- Legacy API endpoints now redirect to new `https://api.example.com/v2/` paths. Update your integrations within `30 days`.
+
+<CodeGroup tabs="JavaScript,Python">
+````javascript
+// Install updated monitoring agent
+const agent = require('@metis/monitoring');
+agent.init({ apiKey: 'YOUR_API_KEY', endpoint: 'https://api.example.com/v2/monitor' });
+````
+````python
+# Install via pip
+import metis_monitoring
+agent = metis_monitoring.MonitoringAgent(api_key='YOUR_API_KEY', endpoint='https://api.example.com/v2/monitor')
+agent.start()
+````
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.5.0" tags={["bugfix", "improvement"]}>
+## Bug Fixes
+
+- Resolved intermittent failures in backup restoration for enterprise clients.
+- Fixed compatibility issues with latest Docker versions in ops toolkit.
+
+## Improvements
+
+- Optimized IT operations CLI tool for `>50%` faster log analysis on large datasets.
+
+<Steps>
+<Step title="Upgrade CLI Tool" icon="download">
+Run the update command:
+````bash
+npm install -g @metis/ops-cli@latest
+````
+</Step>
+<Step title="Verify Installation" icon="check-circle">
+Test with:
+````bash
+metis-ops --version
+````
+</Step>
+<Step title="Reconfigure" icon="settings">
+Update your config file with new endpoint:
+````json
+{
+  "endpoint": "https://api.example.com/v1/ops",
+  "token": "YOUR_TOKEN"
+}
+````
+</Step>
+</Steps>
+
+</Update>
+
+## Next Steps
+
+<Columns cols={3}>
+<Card title="Digital Transformation" icon="zap" href="/introduction">
+Explore updated frameworks for your business growth.
+</Card>
+<Card title="IT Operations Tools" icon="terminal" href="/quickstart">
+Get started with the latest CLI and dashboard features.
+</Card>
+<Card title="Partnerships" icon="users" href="/authentication">
+Learn about new integrations and security enhancements.
+</Card>
+</Columns>
+
+<Callout kind="tip">
+Check your dashboard at `https://dashboard.example.com/updates` for personalized upgrade paths. Contact support for migration assistance.
+</Callout>
